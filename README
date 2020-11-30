@@ -1,0 +1,46 @@
+Find parents
+>>>>>Target
+616 is the haploid, it's parnets maybe TS2xTS1 or TS523xTS177, find who is it's parents.
+Call their SNP and compare their results of SNP, the most similar is parents of 616.
+
+
+>>>>>Structure of the Source
+0. Build index files of reference genome
+1. Single sample maping, sort, rmove duplicate, build index after remove duplicate, call SNP
+2. Combine gvcf, convert to vcf, export SNP as a table filei
+   Combine gvcf files of 616, TS-2, TS-1
+   Combine gvcf files of 616, TS-523, TS-177
+3. Calculate their similarity
+
+
+>>>>>Usages
+0. sh structureIndex.sh
+1. sh 616_maping.sh
+   sh TS-1_maping.sh
+   sh TS-2_maping.sh
+   sh TS-523_maping.sh
+   sh TS-177_maping.sh
+2. sh 616_TS-1_TS-2_SNP.sh
+   sh 616_TS-177_TS-523_SNP.sh
+3. Rscript similarity_calculate.R
+
+
+>>>>>Path of relational file
+Software:
+bwa, Samtools, GATK, R
+Path of Software:/public/agis/huangsanwen_group/huyong/software
+
+Err file:
+/vol3/agis/huangsanwen_group/huyong/find_parents/source/zzz-qsub.history
+
+source:
+/vol3/agis/huangsanwen_group/huyong/find_parents/source
+
+
+>>>>>Result
+/vol3/agis/huangsanwen_group/huyong/find_parents/source/similarity.txt
+
+TS-523 is parent of 616
+
+
+by HuYong
